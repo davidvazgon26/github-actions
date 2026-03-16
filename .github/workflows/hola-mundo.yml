@@ -1,19 +1,25 @@
 # This is a basic workflow to help you get started with Actions
 
 name: hola-mundo #Nombre del workflow
+run-name: ¡Estoy aprendiendo Github Actions!
 on: [push] #evento que lo activará
 jobs: #Definición de los jobs
   hola-mundo: #Nombre del job
     runs-on: ubuntu-latest #Maquina en la que correrá
     steps: #Lista de steps del job hola-mundo
-      - name: Public IP #Nombre del step
-        id: ip #identificador usable dentro del job para otros steps
-        uses: haythem/public-ip@v1.3 #Usará el action haythem/public-ip
-      - name: Hola mundo #Segundo step de nombre Hola mundo
-        run: echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! #bash
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4 # Aquí es donde realmente usas 'with'
         with:
           node-version: 18
-      - name: Run index
+
+      - name: Definir variable
+        run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Correr script #Nombre del step
         run: node index.js
