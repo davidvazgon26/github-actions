@@ -20,8 +20,8 @@ jobs: #Definición de los jobs
       - name: Definir variable
         run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
 
-      - name: Instalar dependencias
-        run: npm install
+      # - name: Instalar dependencias
+      #   run: npm install
 
       - name: Correr script #Nombre del step
         run: node index.js
