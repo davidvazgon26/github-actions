@@ -1,14 +1,16 @@
 # This is a basic workflow to help you get started with Actions
 
-name: hola-mundo #Nombre del workflow
-run-name: ¡Estoy aprendiendo Github Actions!
+name: Aprendiendo Github Actions #Nombre del workflow #Opcional
+run-name: ¡Estoy aprendiendo Github Actions! #Este se muestra en el eevnto o run del workflow #Opcional
 on: [push] #evento que lo activará
+
 jobs: #Definición de los jobs
   hola-mundo: #Nombre del job
     runs-on: ubuntu-latest #Maquina en la que correrá
+
     steps: #Lista de steps del job hola-mundo
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4 # Aquí es donde realmente usas 'with'
