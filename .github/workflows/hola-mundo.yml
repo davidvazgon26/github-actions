@@ -10,7 +10,7 @@ jobs: #Definición de los jobs
 
     steps: #Lista de steps del job hola-mundo
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Configurar Node.js
         uses: actions/setup-node@v4 # Aquí es donde realmente usas 'with'
